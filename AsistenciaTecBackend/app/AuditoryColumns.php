@@ -2,16 +2,18 @@
 
 namespace App;
 
+use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Schema\Blueprint;
 
-trait AuditoryColumns {
+trait AuditoryColumns{
+    use SoftDeletes;
+
     public function auditoryFill(Blueprint $table){
         $table->uuid("token");
         $table->boolean("status");
-        $table->foreign("userReg")->references("id")->default(1);
-        $table->foreign("userMod")->references("id")->default(1);
-        $table->dateTime("dateReg");
-        $table->dateTime("dateMod");
+        $table->foreignIdFor(User::class, "user_reg")->nullable();
+        $table->foreignIdFor(User::class, "user_mod")->nullable();
+        $table->softDeletes("deleted_at");
     }
-
 }

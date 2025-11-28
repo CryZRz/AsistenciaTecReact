@@ -2,25 +2,20 @@
 
 namespace App\Models;
 
+use App\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Campus extends Model
 {
-    use HasFactory;
+    use HasFactory, BaseModel;
+    
+    protected $table = "campus";
 
     protected $fillable = [
         'name',
         'state_name',
         'municipality',
-
-        'token',
-        'estatus',
-        'user_reg',
-        'user_mod',
-        'created_at',
-        'updated_at',
-        'deleted_at'
     ];
 
     protected $hidden = [
