@@ -19,12 +19,9 @@ class Rol extends Model
     protected $hidden = [
         'user_reg',
         'user_mod',
-        'created_at',
-        'updated_at',
-        'deleted_at'
     ];
 
-    public function FunctionName() : HasMany {
+    public function user() : HasMany {
         return $this->hasMany(User::class);
     }
 }

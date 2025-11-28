@@ -3,27 +3,23 @@
 namespace App\Models;
 
 use App\BaseModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Campus extends Model
 {
-    use HasFactory, BaseModel;
-    
+    use BaseModel;
+
     protected $table = "campus";
 
     protected $fillable = [
-        'name',
-        'state_name',
-        'municipality',
+        "name",
+        "state_name",
+        "municipality",
     ];
 
     protected $hidden = [
-        'user_reg',
-        'user_mod',
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        "user_reg",
+        "user_mod",
     ];
 
     /**
@@ -41,7 +37,7 @@ class Campus extends Model
      * @return HasMany
      *
      */
-    public function DoorAccess() 
+    public function doorAccess() 
     {
         return $this->hasMany(DoorAccess::class);
     }

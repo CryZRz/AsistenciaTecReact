@@ -2,34 +2,19 @@
 
 namespace App\Models;
 
+use App\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
 class DoorAccess extends Model
 {
-    protected $fillable = [
-        
-        'name',
-        'campus_id',
+    use BaseModel;
 
-        'token',
-        'estatus',
-        'user_reg',
-        'user_mod',
-        'created_at',
-        'updated_at',
-        'deleted_at'
-
+    protected $fillable = [       
+        "name",
+        "campus_id",
     ];
 
-    protected $hidden = [
-        'user_reg',
-        'user_mod',
-        'created_at',
-        'updated_at',
-        'deleted_at'
-    ];
-
-    public function Campus(){
+    public function campus(){
         return $this->belongsTo(Campus::class);
     }
 }

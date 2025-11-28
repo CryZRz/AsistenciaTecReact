@@ -3,6 +3,7 @@
 use App\AuditoryColumns;
 use App\Models\Career;
 use App\Models\Period;
+use App\Models\Student;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->unsignedInteger("smester");
             $table->foreignIdFor(Period::class);
             $table->foreignIdFor(Career::class);
+            $table->foreignIdFor(Student::class);
             $this->auditoryFill($table);
             $table->timestamps();
         });
