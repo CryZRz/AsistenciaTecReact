@@ -9,6 +9,8 @@ class DoorAccess extends Model
 {
     use BaseModel;
 
+    protected $table = "door_access";
+
     protected $fillable = [       
         "name",
         "campus_id",

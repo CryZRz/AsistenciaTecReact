@@ -2,6 +2,7 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom"
 import LoginPage from "./pages/LoginPage"
 import PanelAdmin from "./pages/PanelAdmin"
 import { routesPath } from "./utils/Routes"
+import GuardDoor from "./pages/GuardDoor"
 
 function App() {
 
@@ -19,6 +20,10 @@ function App() {
       {
         path: routesPath.USERS,
         element: <div>Jazmin</div>
+      },
+      {
+        path: routesPath.GUARD_DOOR,
+        element: <GuardDoor/>
       }
     ])
 
